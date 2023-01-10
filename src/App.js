@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import ClassCounter from "./components/classCounter";
-import Counter from "./components/Counter";
+import PostItem from "./components/PostItem";
+import "./styles/App.css";
 
 function App() {
   return (
     <div className="App">
-      <Counter />
-      <ClassCounter />
+      <PostItem />
     </div>
   );
 }
