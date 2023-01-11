@@ -1,45 +1,48 @@
-import React, { useRef, useState } from "react";
-
+import React, { useMemo, useState } from "react";
+// import { createPortal } from "react-dom";
+import PostFilter from "./components/PostFilter";
+import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
-import UiButton from "./components/UI/button/UiButton";
-import UiInput from "./components/UI/input/UiInput";
 import "./styles/App.css";
 
 function App() {
   const [posts, setPosts] = useState([
-    { id: 1, title: "JavaScript 1", body: "JavaScript - язык программирования" },
-    { id: 2, title: "JavaScript 2", body: "JavaScript - язык программирования" },
-    { id: 3, title: "JavaScript 3", body: "JavaScript - язык программирования" },
+    { id: 1, title: "JavaScript 1", body: "3 JavaScript - язык программирования" },
+    { id: 2, title: "JavaScript 2", body: "2 JavaScript - язык программирования" },
+    { id: 3, title: "JavaScript 3", body: "1 JavaScript - язык программирования" },
   ]);
 
-  const [title, setTitle] = useState("");
-  const bodyInputRef = useRef();
+  const [filter, setFilter] = useState({ sort: "", query: "" });
 
-  const AddNewPost = (e) => {
-    e.preventDefault();
-    console.log(title);
-    console.log(bodyInputRef.current.value);
+  const sortedPosts = useMemo(() => {
+    console.log("sorts");
+    if (filter.sort) {
+      return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
+    }
+    return posts;
+  }, [filter.sort, posts]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((post) =>
+      post.title.toLowerCase().includes(filter.query.toLowerCase())
+    );
+  }, [filter.query, sortedPosts]);
+
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  };
+
+  const removePost = (post) => {
+    setPosts(posts.filter((p) => p.id !== post.id));
   };
 
   return (
     <div className="App">
-      <form>
-        {/* Управляемый компонент */}
-        <UiInput
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          placeholder="Название поста"
-        />
-        {/* ./Управляемый компонент */}
+      <PostForm create={createPost} />
+      <hr style={{ margin: "15px 0" }} />
+      <PostFilter filter={filter} setFilter={setFilter} />
 
-        {/* Неуправляемый\ Неконтролируемый компонент */}
-        <UiInput ref={bodyInputRef} type="text" placeholder="Описание поста" />
-        {/* ./Неуправляемый\ Неконтролируемый компонент */}
-
-        <UiButton onClick={AddNewPost}>Создать пост</UiButton>
-      </form>
-      <PostList posts={posts} title={"Список постов про JS"} />
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Список постов про JS"} />
     </div>
   );
 }
