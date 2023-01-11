@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import PostItem from "./components/PostItem";
+import React, { useRef, useState } from "react";
+
+import PostList from "./components/PostList";
+import UiButton from "./components/UI/button/UiButton";
+import UiInput from "./components/UI/input/UiInput";
 import "./styles/App.css";
 
 function App() {
@@ -9,12 +12,34 @@ function App() {
     { id: 3, title: "JavaScript 3", body: "JavaScript - язык программирования" },
   ]);
 
+  const [title, setTitle] = useState("");
+  const bodyInputRef = useRef();
+
+  const AddNewPost = (e) => {
+    e.preventDefault();
+    console.log(title);
+    console.log(bodyInputRef.current.value);
+  };
+
   return (
     <div className="App">
-      <h1 style={{ textAlign: "center" }}>Список постов</h1>
-      {posts.map((post) => (
-        <PostItem key={post.id} post={post} />
-      ))}
+      <form>
+        {/* Управляемый компонент */}
+        <UiInput
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Название поста"
+        />
+        {/* ./Управляемый компонент */}
+
+        {/* Неуправляемый\ Неконтролируемый компонент */}
+        <UiInput ref={bodyInputRef} type="text" placeholder="Описание поста" />
+        {/* ./Неуправляемый\ Неконтролируемый компонент */}
+
+        <UiButton onClick={AddNewPost}>Создать пост</UiButton>
+      </form>
+      <PostList posts={posts} title={"Список постов про JS"} />
     </div>
   );
 }
