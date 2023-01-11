@@ -1,0 +1,20 @@
+.page__wrapper {
+  margin: 30px 0;
+  display: flex;
+}
+.page {
+  cursor: pointer;
+  padding: 5px 15px;
+  color: limegreen;
+  font-size: 14px;
+  background-color: transparent;
+  border: 1px solid limegreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page__current {
+  border: 2px solid orange;
+  font-weight: bold;
+  color: orange;
+}
