@@ -1,7 +1,14 @@
 import React from "react";
+import { getPagesArray } from "../../../utils/pages";
 import classes from "./UiPagination.module.css";
 
-const UiPagination = () => {
+const UiPagination = ({ totalPages, page, changePage }) => {
+  // TODO: useMemo
+  let pagesArray = getPagesArray(totalPages);
+
+  const defaultClasses = classes.page;
+  const currentClasses = [defaultClasses, classes.page__current].join(" ");
+
   return (
     <div className={classes.page__wrapper}>
       {pagesArray.map((p) => (
@@ -10,7 +17,7 @@ const UiPagination = () => {
             changePage(p);
           }}
           key={p}
-          className={page === p ? "page page__current" : "page"}
+          className={page === p ? currentClasses : defaultClasses}
         >
           {p}
         </span>

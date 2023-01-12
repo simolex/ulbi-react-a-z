@@ -7,10 +7,11 @@ import PostList from "./components/PostList";
 import UiButton from "./components/UI/button/UiButton";
 import UiLoader from "./components/UI/loader/UiLoader";
 import UiModal from "./components/UI/modal/UiModal";
+import UiPagination from "./components/UI/pagination/UiPagination";
 import { useFetching } from "./hooks/useFetching";
 import { usePosts } from "./hooks/usePosts";
 import "./styles/App.css";
-import { getPageCount, getPagesArray } from "./utils/pages";
+import { getPageCount } from "./utils/pages";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -20,9 +21,6 @@ function App() {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const sortedAndSearchedPosts = usePosts({ posts, sort: filter.sort, query: filter.query });
-
-  // TODO: useMemo
-  let pagesArray = getPagesArray(totalPages);
 
   const [fetchPosts, isPostsLoading, postError] = useFetching(async (limit, page) => {
     const resp = await PostService.getAll(limit, page);
@@ -71,6 +69,7 @@ function App() {
           title={"Список постов про JS"}
         />
       )}
+      <UiPagination page={page} changePage={changePage} totalPages={totalPages} />
     </div>
   );
 }
