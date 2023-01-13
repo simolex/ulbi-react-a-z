@@ -6,6 +6,11 @@
 #root {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+.main {
+  display: flex;
+  justify-content: center;
 }
 
 .App {
@@ -21,6 +26,10 @@
   align-items: center;
 }
 
+.post__btns {
+  display: flex;
+}
+
 .post-enter {
   transform: translateX(-350px);
 }
@@ -34,4 +43,20 @@
 .post-exit-active {
   transform: translateX(-150px);
   transition: transform 500ms ease-in;
+}
+
+.navbar {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: lightblue;
+}
+
+.navbar__wrapper {
+  margin-left: auto;
+}
+.navbar__links {
+  margin-right: 15px;
 }
