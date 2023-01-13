@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, HashRouter } from "react-router-dom";
-import AppRouter from "./components/AppRouter";
+import { BrowserRouter } from "react-router-dom";
 
 import UiNavbar from "./components/UI/navbar/UiNavbar";
+import AppRouter from "./components/AppRouter";
 import { AuthContext } from "./context";
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("auth")) {
       setIsAuth(true);
-      setIsLoading(false);
     }
+    setIsLoading(false);
   }, []);
 
   return (
