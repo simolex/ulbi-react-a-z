@@ -58,16 +58,11 @@ const Posts = () => {
       <hr style={{ margin: "15px 0" }} />
       <PostFilter filter={filter} setFilter={setFilter} />
       {postError && <h1>Произошла ошибка: {postError}</h1>}
-      {isPostsLoading ? (
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Список постов про JS"} />
+      {isPostsLoading && (
         <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
           <UiLoader />
         </div>
-      ) : (
-        <PostList
-          remove={removePost}
-          posts={sortedAndSearchedPosts}
-          title={"Список постов про JS"}
-        />
       )}
       <UiPagination page={page} changePage={changePage} totalPages={totalPages} />
     </div>

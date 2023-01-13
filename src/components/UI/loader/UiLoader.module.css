@@ -2,7 +2,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 16px dashed limegreen;
+  border: 16px dotted limegreen;
   animation: rotateLoader 1s infinite linear;
   will-change: rotate;
 }
@@ -10,11 +10,14 @@
 @keyframes rotateLoader {
   0% {
     transform: rotate(0deg) scale(0.7);
+    border-width: 23px;
   }
   50% {
     transform: rotate(180deg) scale(1);
+    border-width: 27px;
   }
   100% {
     transform: rotate(360deg) scale(0.7);
+    border-width: 23px;
   }
 }
