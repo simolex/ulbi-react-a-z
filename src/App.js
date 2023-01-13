@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 
 import UiNavbar from "./components/UI/navbar/UiNavbar";
@@ -24,7 +24,7 @@ function App() {
         isLoading,
       }}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/ulbi-react-a-z">
         <UiNavbar />
         <AppRouter />
       </BrowserRouter>

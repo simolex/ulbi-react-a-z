@@ -14,15 +14,19 @@ const AppRouter = () => {
     <div className="main">
       {isAuth ? (
         <Routes>
-          {privateRoutes.map((r) => (
-            <Route path={r.path} element={r.element} key={r.path} />
-          ))}
+          <Route path="/ulbi-react-a-z/">
+            {privateRoutes.map((r) => (
+              <Route path={r.path} element={r.element} key={r.path} />
+            ))}
+          </Route>
         </Routes>
       ) : (
         <Routes>
-          {publicRoutes.map((r) => (
-            <Route path={r.path} element={r.element} key={r.path} />
-          ))}
+          <Route path="/ulbi-react-a-z/">
+            {publicRoutes.map((r) => (
+              <Route path={r.path} element={r.element} key={r.path} />
+            ))}
+          </Route>
         </Routes>
       )}
     </div>

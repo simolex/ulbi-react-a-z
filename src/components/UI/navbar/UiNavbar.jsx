@@ -14,10 +14,10 @@ const UiNavbar = () => {
     <div className="navbar">
       {isAuth ? <UiButton onClick={logouting}>Выйти</UiButton> : ""}
       <div className="navbar__wrapper">
-        <Link to="./about" className="navbar__links">
+        <Link to="/about" className="navbar__links">
           О Сайте
         </Link>
-        <Link to="./posts" className="navbar__links">
+        <Link to="/posts" className="navbar__links">
           Посты
         </Link>
       </div>
