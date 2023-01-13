@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/ulbi-react-a-z/static/css/main.f77b3033.chunk.css",
-    "main.js": "/ulbi-react-a-z/static/js/main.54f10676.chunk.js",
-    "main.js.map": "/ulbi-react-a-z/static/js/main.54f10676.chunk.js.map",
+    "main.js": "/ulbi-react-a-z/static/js/main.a0e0fb6a.chunk.js",
+    "main.js.map": "/ulbi-react-a-z/static/js/main.a0e0fb6a.chunk.js.map",
     "runtime-main.js": "/ulbi-react-a-z/static/js/runtime-main.f89f4382.js",
     "runtime-main.js.map": "/ulbi-react-a-z/static/js/runtime-main.f89f4382.js.map",
-    "static/js/2.4b33d213.chunk.js": "/ulbi-react-a-z/static/js/2.4b33d213.chunk.js",
-    "static/js/2.4b33d213.chunk.js.map": "/ulbi-react-a-z/static/js/2.4b33d213.chunk.js.map",
+    "static/js/2.67f0d56f.chunk.js": "/ulbi-react-a-z/static/js/2.67f0d56f.chunk.js",
+    "static/js/2.67f0d56f.chunk.js.map": "/ulbi-react-a-z/static/js/2.67f0d56f.chunk.js.map",
     "index.html": "/ulbi-react-a-z/index.html",
     "static/css/main.f77b3033.chunk.css.map": "/ulbi-react-a-z/static/css/main.f77b3033.chunk.css.map",
-    "static/js/2.4b33d213.chunk.js.LICENSE.txt": "/ulbi-react-a-z/static/js/2.4b33d213.chunk.js.LICENSE.txt"
+    "static/js/2.67f0d56f.chunk.js.LICENSE.txt": "/ulbi-react-a-z/static/js/2.67f0d56f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f89f4382.js",
-    "static/js/2.4b33d213.chunk.js",
+    "static/js/2.67f0d56f.chunk.js",
     "static/css/main.f77b3033.chunk.css",
-    "static/js/main.54f10676.chunk.js"
+    "static/js/main.a0e0fb6a.chunk.js"
   ]
 }
